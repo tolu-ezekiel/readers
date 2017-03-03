@@ -6,7 +6,7 @@
     "tolu-ezekiel <ezekiel2easy@gmail.com>"
   ],
   "license": "ISC",
-  "homepage": "https://github.com/tolu-ezekiel/library",
+  "homepage": "https://github.com/tolu-ezekiel/readers",
   "ignore": [
     "**/.*",
     "node_modules",
