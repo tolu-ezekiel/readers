@@ -23,7 +23,24 @@ Port = {
             $(".intro-header").css({"background": "url(./img/home-mobile.jpg) no-repeat center center"});
             $(".portfolio").css({"background": "url(./img/portfolio-mobile.jpg) no-repeat center center" });
             $(".contact").css({"background": "url(./img/contact-mobile.jpg) no-repeat center center"})
+        };
+
+
+        var currentImage = 0;
+        var images = [
+            'http://images.gr-assets.com/books/1413215930m/656.jpg',
+            'https://images.gr-assets.com/authors/1199698411p7/18541.jpg'
+        ];
+        var imageElement = document.getElementById('yourImageTagId');
+
+        function nextImage(){
+            currentImage = (currentImage + 1) % images.length;
+            imageElement.src = images[currentImage];
         }
+
+        var timeoutId = setTimeout(nextImage, 1000);
+
+
     },
 
     Animate: function(){
