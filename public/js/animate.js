@@ -25,22 +25,21 @@ Port = {
             $(".contact").css({"background": "url(./img/contact-mobile.jpg) no-repeat center center"})
         };
 
+        // var currentImage = 0;
+        // var images = [
+        //     'http://images.gr-assets.com/books/1413215930m/656.jpg',
+        //     'https://images.gr-assets.com/authors/1199698411p7/18541.jpg',
+        //     'https://images.gr-assets.com/authors/1265508525p7/18542.jpg'
+        // ];
+        // var imageElement = document.getElementById('yourImageTagId');
 
-        var currentImage = 0;
-        var images = [
-            'http://images.gr-assets.com/books/1413215930m/656.jpg',
-            'https://images.gr-assets.com/authors/1199698411p7/18541.jpg'
-        ];
-        var imageElement = document.getElementById('yourImageTagId');
-
-        function nextImage(){
-            currentImage = (currentImage + 1) % images.length;
-            imageElement.src = images[currentImage];
-        }
-
-        var timeoutId = setTimeout(nextImage, 1000);
-
-
+        // function nextImage(){
+        //     currentImage = (currentImage + 1) % images.length;
+        //     console.log('currentImage', currentImage)
+        //     imageElement.src = images[currentImage];
+        //     setTimeout(nextImage, 2000);
+        // }
+        // setTimeout(nextImage, 1000);
     },
 
     Animate: function(){

@@ -79,19 +79,29 @@
                     <hr class="section-heading-spacer">
                     <div class="clearfix"></div>
                     <h2 class="section-heading">Add new book</h2>
-                    <p class="lead">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                    <p class="lead">I currently work as a Software Engineer for </p>publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                    <form id="my-form">
+                        <div class="input-group">
+                          <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></span>
+                          <input type="text" class="form-control" placeholder="Author" aria-describedby="basic-addon2">
+                        </div><br>
+                        <div class="input-group">
+                          <span class="input-group-addon" id="basic-addon2"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></span>
+                          <input type="text" class="form-control" placeholder="Title" aria-describedby="basic-addon2">
+                        </div><br>
+                        <div class="input-group">
+                          <span class="input-group-addon" id="basic-addon3"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span></span>
+                          <input type="text" class="form-control" placeholder="Genre" aria-describedby="basic-addon3">
+                        </div><br>
+                        <button id="add-book-btn" type="button" class="btn btn-primary">Submit</button>
+                    </form>
                     <div class="clearfix"></div>
                 </div>
                 <div class="col-lg-5 col-sm-pull-6  col-sm-6">
-<div id="cf4a">
-    <img src="" id="yourImageTagId" />
-  <!-- <img class="bottom" src="http://images.gr-assets.com/books/1413215930m/656.jpg" /> -->
-  <!-- <img class="top" src="https://images.gr-assets.com/authors/1199698411p7/18541.jpg" /> -->
-  <!-- <img class="bottom" src="http://images.gr-assets.com/books/1413215930m/656.jpg" /> -->
-</div>
                     <hr class="section-heading-spacer"> 
-                    <div class="grid">
+                    <div id="library-image">
+                        <!-- <img src="/img/library-image.jpg"> -->
+                    </div>
+                  <!--   <div class="grid">
                         <div style="position: absolute; visibility: visible; left: 0px; top: 0px;"> <img src="http://images.gr-assets.com/books/1413215930m/656.jpg" class="img-responsive" alt="">
                         </div>
                         <div style="position: absolute; visibility: visible; left: 30%; top: 0px;"> <img src="https://images.gr-assets.com/authors/1199698411p7/18541.jpg" class="img-responsive" alt="">
@@ -116,7 +126,7 @@
                         </div>
                         <div style="position: absolute; visibility: visible; left: 78%; top: 340px;"> <img src="http://images.gr-assets.com/books/1413215930m/656.jpg" class="img-responsive" alt="">
                         </div>
-                    </div> 
+                    </div>  -->
                 </div>
             </div>
         </div>

@@ -205,14 +205,21 @@ p.copyright {
 }
 
 
-
-
-
-
-
-.grid {
+#my-form {
+    background-color: #999;
+    border-color: #ddd;
+    border-width: 1px;
+    border-radius: 4px 4px 0 0;
+    box-shadow: none;
     position: relative;
-    clear: both;
+    padding: 45px 15px 15px;
+    margin: 0 -15px 15px;
+    text-align: center;
 }
+
+
+/*#ibrary-image {
+    background: url(../img/library-image.jpg) no-repeat center center fixed;
+}*/
 
 
