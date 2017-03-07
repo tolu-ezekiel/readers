@@ -53,17 +53,13 @@
                 </button>
                 <!-- <a href="#home"><img id="logo" class="navbar-brand topnav" src="img/ezekiel-icon.png" alt="Zeek" ></a> -->
                 <h4> <a href="">Home</a> </h2>
-                
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a class="link" href="#about">Books</a>
-                    </li>
-                    <li>
-                        <a class="link" href="#portfolio">Authors</a>
-                    </li>
+                    <% for(var i=0; i<nav.length; i++) {%>
+                            <li><a class="link" href="<%=nav[i].Link%>"> <%=nav[i].Text%> </a></li>
+                    <%}%>
                     <li>
                         <a class="link" href="#contact">Contact</a>
                     </li>
