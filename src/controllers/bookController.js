@@ -8,21 +8,21 @@ var bookController = function(bookService, nav) {
         // }
         next();
     };
-        .post(function(req, res){
-            var url = 'mongodb://localhost:27017/readers';
-            mongodb.connect(url, function(err, db) {
-                var collection = db.collection('users');
-                var user = {
-                    username: req.body.userName,
-                    password: req.body.password
-                };
-                collection.insert(user, function(err, results){
-                    req.login(results.ops[0], function(){
-                        res.redirect('/auth/profile');
-                    });
-                });
-            });
-        });
+        // .post(function(req, res){
+        //     var url = 'mongodb://localhost:27017/readers';
+        //     mongodb.connect(url, function(err, db) {
+        //         var collection = db.collection('users');
+        //         var user = {
+        //             username: req.body.userName,
+        //             password: req.body.password
+        //         };
+        //         collection.insert(user, function(err, results){
+        //             req.login(results.ops[0], function(){
+        //                 res.redirect('/auth/profile');
+        //             });
+        //         });
+        //     });
+        // });
 
     var postBook = function(req, res) {
         var url = 'mongodb://localhost:27017/readers';
@@ -32,11 +32,16 @@ var bookController = function(bookService, nav) {
                 title: req.body.title,
                 genre:
                 author:
-                read
+                read:
+                image:
             }
-            var author = 
-                collection.insertMany(books, function(err, results){
+            var author = {
+                author:
+                image:
+            }
+                collection.insert(book, function(err, results){
                     res.send(results);
+                    res.redirect('/auth/profile');
                     db.close();
                 });
 
