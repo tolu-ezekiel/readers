@@ -8,8 +8,45 @@ var bookController = function(bookService, nav) {
         // }
         next();
     };
+        .post(function(req, res){
+            var url = 'mongodb://localhost:27017/readers';
+            mongodb.connect(url, function(err, db) {
+                var collection = db.collection('users');
+                var user = {
+                    username: req.body.userName,
+                    password: req.body.password
+                };
+                collection.insert(user, function(err, results){
+                    req.login(results.ops[0], function(){
+                        res.redirect('/auth/profile');
+                    });
+                });
+            });
+        });
+
+    var postBook = function(req, res) {
+        var url = 'mongodb://localhost:27017/readers';
+        mondodb.connect(url, function(err, db) {
+            var collection = db.connection('books');
+            var book = {
+                title: req.body.title,
+                genre:
+                author:
+                read
+            }
+            var author = 
+                collection.insertMany(books, function(err, results){
+                    res.send(results);
+                    db.close();
+                });
+
+        });
+
+    };
+
+
     var getIndex = function(req, res) {
-        var url = 'mongodb://localhost:27017/libraryApp';
+        var url = 'mongodb://localhost:27017/readers';
         mongodb.connect(url, function(err, db) {
             var collection = db.collection('books');
             collection.find({}).toArray(function(err, results) {
@@ -19,7 +56,7 @@ var bookController = function(bookService, nav) {
     };
     var getById = function(req, res) {
         var id = objectId(req.params.id);
-        var url = 'mongodb://localhost:27017/libraryApp';
+        var url = 'mongodb://localhost:27017/readers';
         mongodb.connect(url, function(err, db) {
             var collection = db.collection('books');
             collection.findOne({ _id: id }, function(err, results) {
@@ -36,6 +73,7 @@ var bookController = function(bookService, nav) {
     };
 
     return {
+        postBook: postBook,
         getIndex: getIndex,
         getById: getById,
         middleware: middleware
