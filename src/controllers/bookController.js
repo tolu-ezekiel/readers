@@ -1,55 +1,30 @@
 var mongodb = require('mongodb').MongoClient;
 var objectId = require('mongodb').ObjectID;
 
-var bookController = function(bookService, nav) {
+var bookController = function(bookService, nav, Book, Author) {
     var middleware = function(req, res, next) {
         // if (!req.user) {
         //     res.redirect('/');
         // }
         next();
     };
-        // .post(function(req, res){
-        //     var url = 'mongodb://localhost:27017/readers';
-        //     mongodb.connect(url, function(err, db) {
-        //         var collection = db.collection('users');
-        //         var user = {
-        //             username: req.body.userName,
-        //             password: req.body.password
-        //         };
-        //         collection.insert(user, function(err, results){
-        //             req.login(results.ops[0], function(){
-        //                 res.redirect('/auth/profile');
-        //             });
-        //         });
-        //     });
-        // });
-
     var postBook = function(req, res) {
-        var url = 'mongodb://localhost:27017/readers';
-        mondodb.connect(url, function(err, db) {
-            var collection = db.connection('books');
-            var book = {
-                title: req.body.title,
-                genre:
-                author:
-                read:
-                image:
-            }
-            var author = {
-                author:
-                image:
-            }
-                collection.insert(book, function(err, results){
-                    res.send(results);
-                    res.redirect('/auth/profile');
-                    db.close();
-                });
-
-        });
-
+        console.log('req', req.body)
+        var book = new Book(req.body);
+        var author = new Author(
+            title = req.body.title
+            )
+        if (!req.body.title) {
+            res.status(400);
+            res.send('Title is required');
+        } else {
+            author.save()
+            book.save();
+            res.status(201);
+            // res.send(book);
+            res.render('bookView', { title: 'Books from render', nav: nav, book: book });
+        }
     };
-
-
     var getIndex = function(req, res) {
         var url = 'mongodb://localhost:27017/readers';
         mongodb.connect(url, function(err, db) {

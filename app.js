@@ -3,14 +3,19 @@ var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 // var passport = require('passport');
 var session = require('express-session');
+var mongoose = require('mongoose');
+
+var db = mongoose.connect('mongodb://localhost/readers');
+var Book = require('./src/models/bookModel');
+var Author = require('./src/models/authorModel');
 
 var app = express();
 
 var port = process.env.PORT || 5000;
 var nav =  [{Link: '/Books', Text: 'Book'}, {Link: '/Authors', Text: 'Author'}];
-var bookRouter = require('./src/routes/bookRoutes') (nav);
-var adminRouter = require('./src/routes/adminRoutes') (nav);
-var authRouter = require('./src/routes/authRoutes') (nav);
+var bookRouter = require('./src/routes/bookRoutes') (nav, Book, Author);
+var adminRouter = require('./src/routes/adminRoutes') (nav, Book, Author);
+var authRouter = require('./src/routes/authRoutes') (nav, Book, Author);
 
 app.use(express.static('public'));
 app.use(bodyParser.json());

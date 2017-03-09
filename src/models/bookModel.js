@@ -3,7 +3,8 @@ var mongoose = require('mongoose'),
 
 var bookModel = new Schema({
     title: {
-        type: String
+        type: String,
+        unique: true
     },
     author: {
         type: String
@@ -15,6 +16,9 @@ var bookModel = new Schema({
         type: Boolean,
         default: false
     },
+    image: {
+        type: String
+    }
 });
 
 module.exports = mongoose.model('Book', bookModel);

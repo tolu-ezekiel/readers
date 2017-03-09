@@ -3,9 +3,9 @@ var bookRouter = express.Router();
 var mongodb = require('mongodb').MongoClient;
 var objectId = require('mongodb').ObjectID;
 
-var router = function(nav) {
+var router = function(nav, Book, Author) {
     var bookService = require('../services/goodreadsService')();
-    var bookController = require('../controllers/bookController')(bookService, nav);
+    var bookController = require('../controllers/bookController')(bookService, nav, Book, Author);
     bookRouter.use(bookController.middleware);
     bookRouter.route('/addBook')
         .post(bookController.postBook);
