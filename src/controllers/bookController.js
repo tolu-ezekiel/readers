@@ -9,16 +9,16 @@ var bookController = function(bookService, nav, Book, Author) {
         next();
     };
     var postBook = function(req, res) {
-        console.log('req', req.body)
+        console.log('req', req.body);
         var book = new Book(req.body);
-        var author = new Author(
-            title = req.body.title
-            )
+        // var author = new Author(
+        //     title = req.body.title
+        //     )
         if (!req.body.title) {
             res.status(400);
             res.send('Title is required');
         } else {
-            author.save()
+            // Author.save()
             book.save();
             res.status(201);
             // res.send(book);
