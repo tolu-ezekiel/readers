@@ -2,6 +2,9 @@ var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
 var bookModel = new Schema({
+    bookId: {
+        type: Number
+    },
     title: {
         type: String,
         unique: true
@@ -17,6 +20,9 @@ var bookModel = new Schema({
         default: false
     },
     image: {
+        type: String
+    },
+    description: {
         type: String
     }
 });

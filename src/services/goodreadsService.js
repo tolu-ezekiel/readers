@@ -21,8 +21,27 @@ var goodreadsService = function() {
         };
         http.request(options, callback).end();
     };
+    var getBookByTitle = function(title, author, cb) {
+        var options = {
+            host: 'www.goodreads.com',
+            path: '/book/title.xml?&key=k8a4Fnfv1HIrZ8MlxZAzOg&title='+ title+'&author='+ author+''
+        };
+        var callback = function(response) {
+            var str = '';
+            response.on('data', function(chunk) {
+                    str += chunk;
+                },
+                response.on('end', function() {
+                    parser.parseString(str, function(err, result) {
+                        cb(null, result.GoodreadsResponse.book);
+                    });
+                }));
+        };
+        http.request(options, callback).end();
+    };
     return {
-        getBookById: getBookById
+        getBookById: getBookById,
+        getBookByTitle: getBookByTitle
     };
 };
 

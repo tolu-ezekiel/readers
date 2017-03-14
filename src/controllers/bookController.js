@@ -9,7 +9,6 @@ var bookController = function(bookService, nav, Book, Author) {
         next();
     };
     var postBook = function(req, res) {
-        console.log('req', req.body);
         var book = new Book(req.body);
         // var author = new Author(
         //     title = req.body.title
@@ -19,10 +18,16 @@ var bookController = function(bookService, nav, Book, Author) {
             res.send('Title is required');
         } else {
             // Author.save()
-            book.save();
-            res.status(201);
-            // res.send(book);
-            res.render('bookView', { title: 'Books from render', nav: nav, book: book });
+            var title = req.body.title.split(' ').join('+')
+            var author = req.body.author.split(' ').join('+')
+            bookService.getBookByTitle(title, author, function(err, returned_book) {
+                book.image = returned_book.image_url
+                book.bookId = returned_book.id
+                book.description = returned_book.description
+                book.save();
+                res.status(201);
+                res.render('bookView', { title: 'Books from render', nav: nav, book: book });
+            });
         }
     };
     var getIndex = function(req, res) {
