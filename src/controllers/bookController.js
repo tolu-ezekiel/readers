@@ -18,17 +18,20 @@ var bookController = function(bookService, nav, Book, Author) {
             var title = req.body.title.split(' ').join('+')
             var author_name = req.body.author.split(' ').join('+')
             bookService.getBookByTitle(title, author_name, function(err, returned_book) {
+                console.log(returned_book);
                 book.image = returned_book.image_url
                 book.bookId = returned_book.id
                 book.description = returned_book.description
-                book.save();
                 if (author_name == '') {
                     author_name = returned_book.authors.author[0].name
                 }
                 author.authorId = returned_book.authors.author[0].id
                 author.name = author_name
                 author.image = returned_book.authors.author[0].image_url._
-                author.save();
+                // author.save();
+                // book.author = 
+                // book.save();
+
                 res.status(201);
                 res.render('bookView', { title: 'Books from render', nav: nav, book: book });
             });
