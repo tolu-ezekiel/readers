@@ -2,7 +2,10 @@ var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
 var authorModel = new Schema({
-    author: {
+    authorId: {
+        type: Number
+    },
+    name: {
         type: String,
         unique: true
     },

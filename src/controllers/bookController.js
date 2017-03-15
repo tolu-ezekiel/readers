@@ -10,21 +10,25 @@ var bookController = function(bookService, nav, Book, Author) {
     };
     var postBook = function(req, res) {
         var book = new Book(req.body);
-        // var author = new Author(
-        //     title = req.body.title
-        //     )
+        var author = new Author();
         if (!req.body.title) {
             res.status(400);
             res.send('Title is required');
         } else {
-            // Author.save()
             var title = req.body.title.split(' ').join('+')
-            var author = req.body.author.split(' ').join('+')
-            bookService.getBookByTitle(title, author, function(err, returned_book) {
+            var author_name = req.body.author.split(' ').join('+')
+            bookService.getBookByTitle(title, author_name, function(err, returned_book) {
                 book.image = returned_book.image_url
                 book.bookId = returned_book.id
                 book.description = returned_book.description
                 book.save();
+                if (author_name == '') {
+                    author_name = returned_book.authors.author[0].name
+                }
+                author.authorId = returned_book.authors.author[0].id
+                author.name = author_name
+                author.image = returned_book.authors.author[0].image_url._
+                author.save();
                 res.status(201);
                 res.render('bookView', { title: 'Books from render', nav: nav, book: book });
             });
