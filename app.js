@@ -12,7 +12,7 @@ var Author = require('./src/models/authorModel');
 var app = express();
 
 var port = process.env.PORT || 5500;
-var nav =  [{Link: '/Books', Text: 'Book'}, {Link: '/Authors', Text: 'Author'}];
+var nav =  [{Link: '/Books', Text: 'Books'}, {Link: '/Authors', Text: 'Authors'}];
 var bookRouter = require('./src/routes/bookRoutes') (nav, Book, Author);
 var adminRouter = require('./src/routes/adminRoutes') (nav, Book, Author);
 var authRouter = require('./src/routes/authRoutes') (nav, Book, Author);

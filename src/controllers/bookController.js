@@ -39,8 +39,6 @@ var bookController = function(bookService, nav, Book, Author) {
                             book.save();
                         }
                     });
-                    // book.author = 
-                    // book.save();
                     res.status(201);
                     res.render('bookView', { title: 'Books from render', nav: nav, book: book });
                 }
