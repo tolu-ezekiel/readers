@@ -16,6 +16,7 @@ var nav =  [{Link: '/Books', Text: 'Books'}, {Link: '/Authors', Text: 'Authors'}
 var bookRouter = require('./src/routes/bookRoutes') (nav, Book, Author);
 var adminRouter = require('./src/routes/adminRoutes') (nav, Book, Author);
 var authRouter = require('./src/routes/authRoutes') (nav, Book, Author);
+var authorRoute = require('./src/routes/authorRoutes') (nav, Book, Author);
 
 app.use(express.static('public'));
 app.use(bodyParser.json());
@@ -31,6 +32,7 @@ app.set('view engine', '.ejs');
 app.use('/Books', bookRouter);
 app.use('/Admin', adminRouter);
 app.use('/Auth', authRouter);
+app.use('/Authors', authorRoute);
 app.get('/', function(req, res){
     res.render('index', {title: 'Hello from render', nav: nav });
 });
