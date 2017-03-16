@@ -25,7 +25,7 @@ var authorController = function(bookService, nav, Book, Author) {
         } else {
             author.save();
             res.status(201);
-            res.render('bookView', { title: 'Books from render', nav: nav, book: book });
+            res.render('bookView', { title: 'Authors', nav: nav, author: author });
         }
     };
     return {
