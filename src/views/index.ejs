@@ -66,28 +66,37 @@
                 <div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
                     <hr class="section-heading-spacer">
                     <div class="clearfix"></div>
-                    <h2 class="section-heading">Add new book</h2>
-                    <form id="my-form" action="/Books/addBook" method="post">
-                        <div class="input-group">
-                          <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></span>
-                          <input name="author" type="text" class="form-control" placeholder="Author" aria-describedby="basic-addon2">
-                        </div><br>
-                        <div class="input-group">
-                          <span class="input-group-addon" id="basic-addon2"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></span>
-                          <input name="title" type="text" class="form-control" placeholder="Title" aria-describedby="basic-addon2">
-                        </div><br>
-                        <div class="input-group">
-                          <span class="input-group-addon" id="basic-addon3"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span></span>
-                          <input name="genre" type="text" class="form-control" placeholder="Genre" aria-describedby="basic-addon3">
-                        </div><br>
-                        <div class="input-group">
-                            <label class="switch">
-                              <input name="read" type="checkbox">
-                              <div class="slider round"></div>
-                            </label>
-                        </div><br>
-                        <button id="add-book-btn" type="submit" class="btn btn-primary">Submit</button>
-                    </form>
+                        <div class="panel panel-info" >
+                            <div class="panel-heading">
+                                <div class="panel-title">Add new book</div>
+                            </div>   
+                            <div class="panel-body" >
+                                <form id="" class="form-horizontal" role="form" action="/Books/addBook" method="post">
+                                    <div class="input-group">
+                                      <span class="input-group-addon" id="basic-addon1"><i class="fa fa-user-circle-o fa-lg"></i></span>
+                                      <input name="author" type="text" class="form-control" placeholder="Author" aria-describedby="basic-addon2">
+                                    </div>
+                                    <div class="input-group">
+                                      <span class="input-group-addon" id="basic-addon2"><i class="fa fa-pencil-square-o fa-lg"></i></span>
+                                      <input name="title" type="text" class="form-control" placeholder="Title" aria-describedby="basic-addon2">
+                                    </div>
+                                    <div class="input-group">
+                                      <span class="input-group-addon" id="basic-addon3"><i class="fa fa-book fa-lg"></i></span>
+                                      <input name="genre" type="text" class="form-control" placeholder="Genre" aria-describedby="basic-addon3">
+                                    </div>
+                                    <div id="read-switch">
+                                        <span>Have you read this book<i class="fa fa-question-circle-o fa-lg"></i></span>
+                                        <label class="switch">
+                                          <input name="read" type="checkbox">
+                                          <div class="slider round"></div>
+                                        </label>
+                                    </div>
+                                    <div class="col-sm-12 form-group">
+                                        <button id="add-book-btn" type="submit" class="btn btn-success">Submit new book details</button>
+                                    </div> 
+                                </form>
+                            </div>
+                        </div>
                     <div class="clearfix"></div>
                 </div>
                 <div class="col-lg-5 col-sm-pull-6  col-sm-6">
